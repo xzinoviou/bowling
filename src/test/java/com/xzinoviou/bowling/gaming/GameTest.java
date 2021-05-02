@@ -25,7 +25,7 @@ public class GameTest {
   public void testFourThrowsNoMark() {
     Game game = new Game();
     game.add(5);
-    game.add(5);
+    game.add(4);
     game.add(7);
     game.add(2);
     assertEquals(18, game.score());
