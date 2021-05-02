@@ -7,6 +7,7 @@ public class Game {
   private int itsCurrentThrow = 0;
 
   public void add(int pins) {
+    this.itsThrows[itsCurrentThrow++] = pins;
     this.itsScore += pins;
   }
 
@@ -18,7 +19,9 @@ public class Game {
     var score = 0;
     var ball = 0;
     for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-      score += itsThrows[ball++] + itsThrows[ball++];
+      int firstThrow = itsThrows[ball++];
+      int secondThrow = itsThrows[ball++];
+      score += firstThrow + secondThrow;
     }
     return score;
   }
