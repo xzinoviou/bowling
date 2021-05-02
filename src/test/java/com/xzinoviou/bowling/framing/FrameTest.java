@@ -1,5 +1,7 @@
 package com.xzinoviou.bowling.framing;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 public class FrameTest {
