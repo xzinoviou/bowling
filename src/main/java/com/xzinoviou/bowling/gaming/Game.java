@@ -11,8 +11,11 @@ public class Game {
   public void add(int pins) {
     this.itsThrows[itsCurrentThrow++] = pins;
     this.itsScore += pins;
+    adjustCurrentFrame();
+  }
 
-    if (firstThrow == true) {
+  private void adjustCurrentFrame() {
+    if (firstThrow) {
       firstThrow = false;
       itsCurrentFrame++;
     } else {
