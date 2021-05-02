@@ -2,20 +2,32 @@ package com.xzinoviou.bowling.gaming;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class GameTest {
 
+  private Game game;
+
+  @Before
+  public void setUp() {
+    this.game = new Game();
+  }
+
+  @After
+  public void tearDown() {
+    this.game = null;
+  }
+
   @Test
   public void testOneThrow() {
-    Game game = new Game();
     game.add(5);
     assertEquals(5, game.score());
   }
 
   @Test
   public void testTwoThrowsNoMark() {
-    Game game = new Game();
     game.add(5);
     game.add(4);
     assertEquals(9, game.score());
@@ -23,7 +35,6 @@ public class GameTest {
 
   @Test
   public void testFourThrowsNoMark() {
-    Game game = new Game();
     game.add(5);
     game.add(4);
     game.add(7);
@@ -32,4 +43,6 @@ public class GameTest {
     assertEquals(9, game.scoreForFrame(1));
     assertEquals(18, game.scoreForFrame(2));
   }
+
+
 }
