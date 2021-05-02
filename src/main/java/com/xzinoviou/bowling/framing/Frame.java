@@ -7,4 +7,8 @@ public class Frame {
   public int getScore() {
     return score;
   }
+
+  public void add(int pins) {
+    this.score += pins;
+  }
 }
