@@ -32,6 +32,7 @@ public class GameTest {
     game.add(5);
     game.add(4);
     assertEquals(9, game.score());
+    assertEquals(1,game.getCurrentFrame());
   }
 
   @Test
