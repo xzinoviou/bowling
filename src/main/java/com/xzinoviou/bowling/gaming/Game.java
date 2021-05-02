@@ -15,6 +15,10 @@ public class Game {
     return itsScore;
   }
 
+  public int getCurrentFrame() {
+    return 1;
+  }
+
   public int scoreForFrame(int theFrame) {
     var score = 0;
     var ball = 0;
