@@ -11,4 +11,11 @@ public class FrameTest {
     Frame frame = new Frame();
     assertEquals(0, frame.getScore());
   }
+
+  @Test
+  public void testAddOneThrow() {
+    Frame frame = new Frame();
+    frame.add(5);
+    assertEquals(5, frame.getScore());
+  }
 }
