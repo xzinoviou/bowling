@@ -44,6 +44,7 @@ public class GameTest {
     assertEquals(18, game.score());
     assertEquals(9, game.scoreForFrame(1));
     assertEquals(18, game.scoreForFrame(2));
+    assertEquals(2,game.getCurrentFrame());
   }
 
   @Test
