@@ -53,4 +53,13 @@ public class GameTest {
   }
 
 
+  @Test
+  public void testSimpleFrameAfterSpare() {
+    game.add(3);
+    game.add(7);
+    game.add(3);
+    game.add(2);
+    assertEquals(13, game.scoreForFrame(1));
+    assertEquals(18, game.score());
+  }
 }
