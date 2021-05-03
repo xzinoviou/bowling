@@ -2,11 +2,14 @@ package com.xzinoviou.bowling.gaming;
 
 public class Game {
 
+  private int ball;
+  private int firstThrow;
+  private int secondThrow;
   private int itsScore = 0;
   private int[] itsThrows = new int[21];
   private int itsCurrentThrow = 0;
   private int itsCurrentFrame = 1;
-  private boolean firstThrow = true;
+  private boolean firstThrowInFrame = true;
 
   public void add(int pins) {
     this.itsThrows[itsCurrentThrow++] = pins;
@@ -15,14 +18,14 @@ public class Game {
   }
 
   private void adjustCurrentFrame(int pins) {
-    if (firstThrow) {
+    if (firstThrowInFrame) {
       if (pins == 10) {
         itsCurrentFrame++;
       } else {
-        firstThrow = false;
+        firstThrowInFrame = false;
       }
     } else {
-      firstThrow = true;
+      firstThrowInFrame = true;
       itsCurrentFrame++;
     }
 
@@ -38,16 +41,15 @@ public class Game {
   }
 
   public int scoreForFrame(int theFrame) {
+    ball = 0;
     int score = 0;
-    int ball = 0;
     for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-      int firstThrow = itsThrows[ball++];
+      firstThrow = itsThrows[ball++];
 
       if (firstThrow == 10) {
         score += 10 + itsThrows[ball] + itsThrows[ball + 1];
       } else {
-
-        int secondThrow = itsThrows[ball++];
+        secondThrow = itsThrows[ball++];
 
         int frameScore = firstThrow + secondThrow;
 
