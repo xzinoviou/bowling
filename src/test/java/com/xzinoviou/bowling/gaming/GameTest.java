@@ -130,4 +130,14 @@ public class GameTest {
 
     assertEquals(133, game.score());
   }
+
+  @Test
+  public void testHeartBreak() {
+    for (int i = 0; i < 11; i++) {
+      game.add(10);
+    }
+    game.add(9);
+
+    assertEquals(299, game.score());
+  }
 }
