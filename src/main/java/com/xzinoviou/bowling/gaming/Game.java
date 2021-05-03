@@ -50,7 +50,7 @@ public class Game {
         ball++;
         score += 10 + nextTwoBalls();
       } else {
-        score = handleSecondThrow();
+        score += handleSecondThrow();
       }
     }
     return score;
@@ -66,9 +66,10 @@ public class Game {
       ball += 2;
       score += frameScore + itsThrows[ball];
     } else {
+      ball += 2;
       score += frameScore;
     }
-    ball += 2;
+
     return score;
   }
 
