@@ -21,13 +21,6 @@ public class GameTest {
   }
 
   @Test
-  public void testOneThrow() {
-    game.add(5);
-    assertEquals(5, game.score());
-    assertEquals(1, game.getCurrentFrame());
-  }
-
-  @Test
   public void testTwoThrowsNoMark() {
     game.add(5);
     game.add(4);
