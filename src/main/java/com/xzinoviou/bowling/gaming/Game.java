@@ -62,9 +62,9 @@ public class Game {
 
     int frameScore = firstThrow + secondThrow;
 
-    if (frameScore == 10) {
+    if (spare()) {
       ball += 2;
-      score += frameScore + itsThrows[ball];
+      score += 10 + nextBall();
     } else {
       ball += 2;
       score += frameScore;
@@ -79,5 +79,13 @@ public class Game {
 
   private int nextTwoBalls() {
     return itsThrows[ball] + itsThrows[ball + 1];
+  }
+
+  private int nextBall() {
+    return itsThrows[ball];
+  }
+
+  private boolean spare() {
+    return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
   }
 }
