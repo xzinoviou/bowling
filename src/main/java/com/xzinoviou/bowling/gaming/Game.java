@@ -38,8 +38,8 @@ public class Game {
   }
 
   public int scoreForFrame(int theFrame) {
-    var score = 0;
-    var ball = 0;
+    int score = 0;
+    int ball = 0;
     for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
       int firstThrow = itsThrows[ball++];
 
