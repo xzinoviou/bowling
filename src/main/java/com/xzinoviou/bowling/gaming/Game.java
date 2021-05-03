@@ -46,9 +46,9 @@ public class Game {
     for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
       firstThrow = itsThrows[ball];
 
-      if (firstThrow == 10) {
+      if (strike()) {
         ball++;
-        score += 10 + itsThrows[ball] + itsThrows[ball + 1];
+        score += 10 + nextTwoBalls();
       } else {
         score = handleSecondThrow();
       }
@@ -70,5 +70,13 @@ public class Game {
     }
     ball += 2;
     return score;
+  }
+
+  private boolean strike() {
+    return itsThrows[ball] == 10;
+  }
+
+  private int nextTwoBalls() {
+    return itsThrows[ball] + itsThrows[ball + 1];
   }
 }
