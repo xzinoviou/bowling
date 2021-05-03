@@ -70,6 +70,15 @@ public class GameTest {
     assertEquals(19, game.scoreForFrame(1));
     assertEquals(28, game.score());
     assertEquals(3, game.getCurrentFrame());
+  }
 
+  @Test
+  public void testPerfectGame() {
+    for
+    (int i = 0; i < 12; i++) {
+      game.add(10);
+    }
+    assertEquals(300, game.score());
+    assertEquals(10, game.getCurrentFrame());
   }
 }
