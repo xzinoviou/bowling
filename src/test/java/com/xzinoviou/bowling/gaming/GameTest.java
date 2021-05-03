@@ -79,7 +79,7 @@ public class GameTest {
       game.add(10);
     }
     assertEquals(300, game.score());
-    assertEquals(11, game.getCurrentFrame());
+    assertEquals(10, game.getCurrentFrame());
   }
 
   @Test
