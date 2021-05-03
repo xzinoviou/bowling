@@ -23,10 +23,8 @@ public class Game {
 
   private void adjustCurrentFrame(int pins) {
     if (firstThrowInFrame) {
-      if (pins == 10) //strike
-      {
-        advanceFrame();
-      } else {
+
+      if (!adjustFrameForStrike(pins)) {
         firstThrowInFrame = false;
       }
     } else {
@@ -41,5 +39,13 @@ public class Game {
 
   private void advanceFrame() {
     itsCurrentFrame = Math.min(11, itsCurrentFrame + 1);
+  }
+
+  private boolean adjustFrameForStrike(int pins) {
+    if (pins == 10) {
+      advanceFrame();
+      return true;
+    }
+    return false;
   }
 }
