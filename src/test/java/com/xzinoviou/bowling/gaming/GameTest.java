@@ -140,4 +140,16 @@ public class GameTest {
 
     assertEquals(299, game.score());
   }
+
+  @Test
+  public void testTenthFrameSpare() {
+    for (int i = 0; i < 9; i++) {
+      game.add(10);
+    }
+    game.add(9);
+    game.add(1);
+    game.add(1);
+
+    assertEquals(270, game.score());
+  }
 }
