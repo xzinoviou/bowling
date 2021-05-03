@@ -24,7 +24,7 @@ public class GameTest {
   public void testOneThrow() {
     game.add(5);
     assertEquals(5, game.score());
-    assertEquals(1,game.getCurrentFrame());
+    assertEquals(1, game.getCurrentFrame());
   }
 
   @Test
@@ -32,7 +32,7 @@ public class GameTest {
     game.add(5);
     game.add(4);
     assertEquals(9, game.score());
-    assertEquals(2,game.getCurrentFrame());
+    assertEquals(2, game.getCurrentFrame());
   }
 
   @Test
@@ -44,7 +44,7 @@ public class GameTest {
     assertEquals(18, game.score());
     assertEquals(9, game.scoreForFrame(1));
     assertEquals(18, game.scoreForFrame(2));
-    assertEquals(3,game.getCurrentFrame());
+    assertEquals(3, game.getCurrentFrame());
   }
 
   @Test
@@ -53,6 +53,7 @@ public class GameTest {
     game.add(7);
     game.add(3);
     assertEquals(13, game.scoreForFrame(1));
+    assertEquals(2, game.getCurrentFrame());
   }
 
 
@@ -64,5 +65,6 @@ public class GameTest {
     game.add(2);
     assertEquals(13, game.scoreForFrame(1));
     assertEquals(18, game.scoreForFrame(2));
+    assertEquals(3, game.getCurrentFrame());
   }
 }
