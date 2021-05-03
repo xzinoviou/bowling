@@ -95,4 +95,39 @@ public class GameTest {
     game.add(10);
     assertEquals(20, game.score());
   }
+
+  @Test
+  public void testSampleGame() {
+    game.add(1);
+    game.add(4);
+
+    game.add(4);
+    game.add(5);
+
+    game.add(6);
+    game.add(4);
+
+    game.add(5);
+    game.add(5);
+
+    game.add(10);
+
+    game.add(0);
+    game.add(1);
+
+    game.add(7);
+    game.add(3);
+
+    game.add(6);
+    game.add(4);
+
+    game.add(10);
+
+    game.add(2);
+    game.add(8);
+
+    game.add(6);
+
+    assertEquals(133, game.score());
+  }
 }
