@@ -81,4 +81,18 @@ public class GameTest {
     assertEquals(300, game.score());
     assertEquals(11, game.getCurrentFrame());
   }
+
+  @Test
+  public void testEndOfArray() {
+    for (int i = 0; i < 9; i++) {
+      game.add(0);
+      game.add(0);
+    }
+
+    game.add(2);
+    game.add(8);
+
+    game.add(10);
+    assertEquals(20, game.score());
+  }
 }
