@@ -1,25 +1,32 @@
 package com.xzinoviou.bowling.gaming;
 
+import com.xzinoviou.bowling.scoring.Scorer;
+
 public class Game {
 
-  private int ball;
-  private int firstThrow;
-  private int secondThrow;
   private int itsScore = 0;
-  private int[] itsThrows = new int[21];
-  private int itsCurrentThrow = 0;
   private int itsCurrentFrame = 1;
   private boolean firstThrowInFrame = true;
+  private Scorer itsScorer = new Scorer();
+
+  public int score() {
+    return scoreForFrame(getCurrentFrame() - 1);
+  }
+
+  public int getCurrentFrame() {
+    return itsCurrentFrame;
+  }
 
   public void add(int pins) {
-    this.itsThrows[itsCurrentThrow++] = pins;
-    this.itsScore += pins;
+    itsScorer.addThrow(pins);
+    itsScore += pins;
     adjustCurrentFrame(pins);
   }
 
   private void adjustCurrentFrame(int pins) {
     if (firstThrowInFrame) {
-      if (pins == 10) {
+      if (pins == 10) //strike
+      {
         itsCurrentFrame++;
       } else {
         firstThrowInFrame = false;
@@ -32,50 +39,7 @@ public class Game {
     itsCurrentFrame = Math.min(11, itsCurrentFrame);
   }
 
-  public int score() {
-    return scoreForFrame(getCurrentFrame() - 1);
-  }
-
-  public int getCurrentFrame() {
-    return itsCurrentFrame;
-  }
-
   public int scoreForFrame(int theFrame) {
-    ball = 0;
-    int score = 0;
-    for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-
-      if (strike()) {
-        score += 10 + nextTwoBalls();
-        ball++;
-      } else if (spare()) {
-        score += 10 + nextBallForSpare();
-        ball += 2;
-      } else {
-        score += twoBallsInFrame();
-        ball += 2;
-      }
-    }
-    return score;
-  }
-
-  private boolean strike() {
-    return itsThrows[ball] == 10;
-  }
-
-  private int nextTwoBalls() {
-    return itsThrows[ball + 1] + itsThrows[ball + 2];
-  }
-
-  private int nextBallForSpare() {
-    return itsThrows[ball + 2];
-  }
-
-  private boolean spare() {
-    return (itsThrows[ball] + itsThrows[ball + 1]) == 10;
-  }
-
-  private int twoBallsInFrame() {
-    return itsThrows[ball] + itsThrows[ball + 1];
+    return itsScorer.scoreForFrame(theFrame);
   }
 }
