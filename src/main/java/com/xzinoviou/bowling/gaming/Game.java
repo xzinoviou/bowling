@@ -4,7 +4,6 @@ import com.xzinoviou.bowling.scoring.Scorer;
 
 public class Game {
 
-  private int itsScore = 0;
   private int itsCurrentFrame = 1;
   private boolean firstThrowInFrame = true;
   private Scorer itsScorer = new Scorer();
@@ -19,7 +18,6 @@ public class Game {
 
   public void add(int pins) {
     itsScorer.addThrow(pins);
-    itsScore += pins;
     adjustCurrentFrame(pins);
   }
 
